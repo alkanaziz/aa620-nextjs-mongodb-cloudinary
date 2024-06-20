@@ -27,7 +27,7 @@ export async function GET() {
 
 // Test POST controller
 export async function POST(request) {
-  const { title, description, image, imgpub } = await request.json();
+  const { title, description, image } = await request.json();
   const uploadedImage = await cloudinary.uploader.upload(
     image,
     {
