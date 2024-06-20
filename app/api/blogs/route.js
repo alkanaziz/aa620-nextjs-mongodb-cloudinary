@@ -28,11 +28,14 @@ export async function GET() {
 // Test POST controller
 export async function POST(request) {
   const { title, description, image } = await request.json();
+
+  const unixTimestamp = Date.now();
+
   const uploadedImage = await cloudinary.uploader.upload(
     image,
     {
       upload_preset: "blog_images",
-      public_id: `${title}`,
+      public_id: `${title}_${unixTimestamp}`,
       allowed_formats: [
         "jpg",
         "png",
