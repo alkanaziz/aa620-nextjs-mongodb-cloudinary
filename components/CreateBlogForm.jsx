@@ -101,6 +101,9 @@ const CreateBlogForm = () => {
 
     setLoading(false);
     setMessage(response.message);
+    setTimeout(() => {
+      setMessage(null);
+    }, 4000);
 
     // Reset the image URL
     setImageUrl("");
