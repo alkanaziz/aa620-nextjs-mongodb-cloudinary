@@ -118,9 +118,6 @@ const CreateBlogForm = () => {
         <h1 className="mb-12 text-center text-3xl font-bold capitalize text-primary">
           Create a Blog
         </h1>
-        {message && (
-          <p className="mt-3 text-xs font-bold text-green-500">{message}</p>
-        )}
       </div>
 
       <form onSubmit={handleFormSubmit} className="m-x-auto w-full">
@@ -188,15 +185,22 @@ const CreateBlogForm = () => {
           </div>
         </div>
 
-        {loading ? (
-          <button type="submit" className="btn btn-primary mt-3" disabled>
-            <FaSpinner className="animate-spin" />
-          </button>
-        ) : (
-          <button type="submit" className="btn btn-primary mt-3">
-            Submit
-          </button>
-        )}
+        <div className="flex items-center gap-5">
+          {loading ? (
+            <button type="submit" className="btn btn-primary mt-3" disabled>
+              <FaSpinner className="animate-spin" />
+            </button>
+          ) : (
+            <button type="submit" className="btn btn-primary mt-3">
+              Submit
+            </button>
+          )}
+          {message && (
+            <span className="mt-3 text-xs font-bold text-green-500">
+              {message}
+            </span>
+          )}
+        </div>
       </form>
       <div className="mt-3">
         <Link href="/">
